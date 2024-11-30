@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      font-family: "Overpass", sans-serif;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      background-color: #141519;
+    }
+
+    .container {
+      height: 95vh;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .success {
+      height: 40rem;
+      width: 45rem;
+      background-color: #19202a;
+      border-radius: 2rem;
+      display: none;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 5rem;
+    }
+
+    .success__value {
+      color: #fb7413;
+      font-size: 1.6rem;
+      padding: 0.5rem 2rem;
+      border-radius: 2rem;
+      background-color: #252d37;
+      font-weight: 700;
+    }
+
+    .success h1 {
+      color: white;
+      font-size: 2.8rem;
+    }
+
+    .success__bottom {
+      font-size: 1.5rem;
+      color: #959eac;
+      text-align: center;
+      padding: 5px;
+      line-height: 2.5rem;
+    }
+
+    .card {
+      height: 40rem;
+      width: 45rem;
+      background-color: #19202a;
+      border-radius: 2rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      padding: 4rem;
+    }
+
+    .card__image {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: #252d37;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .card h1 {
+      color: #fff;
+      font-size: 2.8rem;
+    }
+
+    .card p {
+      color: #959eac;
+      font-size: 1.5rem;
+      padding-right: 30px;
+      line-height: 2.5rem;
+    }
+
+    .card ul {
+      list-style: none;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .card li {
+      width: 4.5rem;
+      height: 4.5rem;
+      margin-right: 3rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      background-color: #252d37;
+      color: white;
+      font-size: 1.4rem;
+    }
+
+    .card li:hover {
+      background-color: #959eac;
+    }
+
+    .card .list__change {
+      background-color: #fb7413;
+    }
+
+    .card button {
+      height: 4rem;
+      width: 100%;
+      border-radius: 2rem;
+      background-color: #fb7413;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      color: #fff;
+    }
+
+    @media screen and (max-width: 500px) {
+      .card {
+        height: 40rem;
+        width: 40rem;
+      }
+
+      .card p {
+        padding-right: 20px;
+      }
+
+      .card li {
+        width: 4rem;
+        height: 4rem;
+        margin-right: 2.5rem;
+      }
+
+      .success {
+        height: 40rem;
+        width: 40rem;
+      }
+    }
+
+    @media screen and (max-width: 375px) {
+      .card {
+        height: 40rem;
+        width: 35rem;
+      }
+
+      .card li {
+        width: 3.5rem;
+        height: 3.5rem;
+        margin-right: 2rem;
+      }
+
+      .card p {
+        padding-right: 0px;
+      }
+
+      .success {
+        height: 40rem;
+        width: 35rem;
+        padding: 4rem;
+      }
+    }
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="card__image">
+        <img src="images/icon-star.svg" alt="star" />
+      </div>
+      <h1 class="card--title">How did we do?</h1>
+      <p class="card--paragraph">
+        Please let us know how we did with your support request. All feedback
+        is appreciated to help us improve our offering!
+      </p>
+      <ul>
+        <li class="list__item">1</li>
+        <li class="list__item">2</li>
+        <li class="list__item">3</li>
+        <li class="list__item">4</li>
+        <li class="list__item">5</li>
+      </ul>
+      <button class="btn__submit">Submit</button>
+    </div>
+    <div class="success">
+      <div class="success_img">
+        <img src="images/illustration-thank-you.svg" alt="thankyou" />
+      </div>
+
+      <p class="success__value">
+        You selected <span class="span__value">x</span> out of 5
+      </p>
+      <h1>Thank you!</h1>
+      <p class="success__bottom">
+        We appreciate you taking the time to give a rating. If you ever need
+        more support, don’t hesitate to get in touch!
+      </p>
+    </div>
+  </div>
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Omar Kamal</a>.
+  </div>
+  <script>
+    const buttons = document.querySelectorAll(".list__item");
+    const submit = document.querySelector(".btn__submit");
+    const rating = document.querySelector(".span__value");
+    const card = document.querySelector(".card");
+    const success = document.querySelector(".success");
+
+    let value;
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        buttons.forEach((button) => button.classList.remove("list__change"));
+        e.target.classList.add("list__change");
+        value = e.target.textContent;
+      });
+    });
+
+    submit.addEventListener("click", () => {
+      rating.textContent = value;
+      card.style.display = "none";
+      success.style.display = "flex";
+    });
+
+  </script>
+</body>
+
+</html>
